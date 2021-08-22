@@ -7,6 +7,9 @@ use App\Actions\Fortify\PasswordValidationRules;
 
 class UserRequest extends FormRequest
 {
+
+    use PasswordValidationRules;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -14,7 +17,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
