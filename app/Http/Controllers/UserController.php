@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -39,7 +39,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $data['picturePath'] = $request->file('picturePath')->store('assets/user', 'public');
+
+        User::create($data);
+
+        return redirect()->route('users.index');
     }
 
     /**
