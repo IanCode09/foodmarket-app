@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\MidtransController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FoodControler;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::prefix('dashboard')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('users', UserController::class);
+        Route::resource('food', FoodControler::class);
     });
 
 // Midtrans related
